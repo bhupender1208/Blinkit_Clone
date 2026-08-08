@@ -88,11 +88,11 @@ blinkit_clone/
 <table>
   <!-- Row 1: 2 Screens -->
   <tr>
-    <td align="center" style="padding: 15px;">
+    <td align="center" style="margin: 15px;">
       <h3>Splash Screen</h3>
       <img src="screenshots/splash_screen.png" width="350">
     </td>
-    <td align="center" style="padding: 15px;">
+    <td align="center" style="margin: 15px;">
       <h3>Login Screen</h3>
       <img src="screenshots/login.png" width="350">
     </td>
