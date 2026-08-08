@@ -86,30 +86,37 @@ blinkit_clone/
 | **Bottom Navigation** | All 4 tabs (Home, Cart, Categories, Print) visible in the bar |
 
 <table>
+  <!-- Row 1: 2 Screens -->
   <tr>
-    <td align="center" style="padding-right: 30px;">
+    <td align="center" style="padding: 15px;">
       <h3>Splash Screen</h3>
       <img src="screenshots/splash_screen.png" width="350">
     </td>
-    <td align="center" style="padding-left: 30px;">
+
+    <td align="center" style="padding: 15px;">
       <h3>Login Screen</h3>
       <img src="screenshots/login.png" width="350">
     </td>
   </tr>
+
+  <!-- Row 2: 4 Screens -->
   <tr>
-     <td align="center">
+    <td align="center" style="padding: 15px;">
       <h3>Home Screen</h3>
       <img src="screenshots/home.jpeg" width="350">
     </td>
-     <td align="center">
+
+    <td align="center" style="padding: 15px;">
       <h3>Cart Screen</h3>
       <img src="screenshots/cart.jpeg" width="350">
     </td>
-     <td align="center">
+
+    <td align="center" style="padding: 15px;">
       <h3>Category Screen</h3>
       <img src="screenshots/category.jpeg" width="350">
     </td>
-     <td align="center">
+
+    <td align="center" style="padding: 15px;">
       <h3>Print Screen</h3>
       <img src="screenshots/print.jpeg" width="350">
     </td>
