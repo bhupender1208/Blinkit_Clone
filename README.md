@@ -85,37 +85,23 @@ blinkit_clone/
 | **Print Store** | Document printing card with ₹3/page pricing + "Upload Files" button |
 | **Bottom Navigation** | All 4 tabs (Home, Cart, Categories, Print) visible in the bar |
 
-  <table>
-  <!-- Row 1: 2 Screens -->
-  <tr>
-    <td align="center" style="padding: 15px;">
-      <h3>Splash Screen</h3>
-      <img src="screenshots/splash_screen.png" width="350", height="380">
-    </td>
-    <td align="center" style="padding: 15px;">
-      <h3>Login Screen</h3>
-      <img src="screenshots/login.png" width="400", height="380">
-    </td>    
-    <td align="center" style="padding: 15px;">
-      <h3>Home Screen</h3>
-      <img src="screenshots/home.jpeg" width="400", height="380">
-    </td>
-    <td align="center" style="padding: 15px;">
-      <h3>Cart Screen</h3>
-      <img src="screenshots/cart.jpeg" width="400", height="380">
-    </td>
-    <td align="center" style="padding: 15px;">
-      <h3>Category Screen</h3>
-      <img src="screenshots/category.jpeg" width="400", height="380">
-    </td>
-    <td align="center" style="padding: 15px;">
-      <h3>Print Screen</h3>
-      <img src="screenshots/print.jpeg" width="400", height="380">
-    </td>
-  </tr>
-</table>  
- 
+## Splash and Login Screen
 
+<p align="center">
+  <img src="screenshots/splash_login.jpeg" width="300">
+</p>
+
+## Home and Category Screen
+
+<p align="center">
+  <img src="screenshots/home_cate.jpeg" width="300">
+</p>
+
+## Cart and Print Screen
+
+<p align="center">
+  <img src="screenshots/cart_print.jpeg" width="300">
+</p>
  
 
 ---
