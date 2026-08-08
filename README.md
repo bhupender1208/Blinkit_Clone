@@ -95,11 +95,7 @@ blinkit_clone/
     <td align="center" style="margin-left: 15px;">
       <h3>Login Screen</h3>
       <img src="screenshots/login.png" width="350">
-    </td>
-  </tr>
-
-  <!-- Row 2: 4 Screens -->
-  <tr>
+    </td>    
     <td align="center" style="padding: 15px;">
       <h3>Home Screen</h3>
       <img src="screenshots/home.jpeg" width="350">
