@@ -94,23 +94,23 @@ blinkit_clone/
     </td>
     <td align="center" style="padding: 15px;">
       <h3>Login Screen</h3>
-      <img src="screenshots/login.png" width="350", height="380">
+      <img src="screenshots/login.png" width="400", height="380">
     </td>    
     <td align="center" style="padding: 15px;">
       <h3>Home Screen</h3>
-      <img src="screenshots/home.jpeg" width="350", height="380">
+      <img src="screenshots/home.jpeg" width="400", height="380">
     </td>
     <td align="center" style="padding: 15px;">
       <h3>Cart Screen</h3>
-      <img src="screenshots/cart.jpeg" width="350", height="380">
+      <img src="screenshots/cart.jpeg" width="400", height="380">
     </td>
     <td align="center" style="padding: 15px;">
       <h3>Category Screen</h3>
-      <img src="screenshots/category.jpeg" width="350", height="380">
+      <img src="screenshots/category.jpeg" width="400", height="380">
     </td>
     <td align="center" style="padding: 15px;">
       <h3>Print Screen</h3>
-      <img src="screenshots/print.jpeg" width="350", height="380">
+      <img src="screenshots/print.jpeg" width="400", height="380">
     </td>
   </tr>
 </table>  
