@@ -1,17 +1,2 @@
-# weather_app
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+📱 Blinkit Clone – Flutter Grocery Delivery App
+A complete Blinkit-style grocery & food delivery app built with Flutter. The app features a polished UI with splash screen, phone-based login, multi-category product browsing, a shopping cart, and even a Print Store for document uploads — all tied together with a smooth bottom navigation experience.
