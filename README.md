@@ -87,15 +87,15 @@ blinkit_clone/
 
  ### Splash Screen
 
-<p align="center">
+<span align="center">
   <img src="screenshots/splash_screen.png" width="300", height="300">
-</p>
+</span>
 
 ### Login Screen
-<p align="center">
+<span align="center">
   <img src="screenshots/login.png" width="250", height="300">
  
-</p>
+</span>
  
 
  
