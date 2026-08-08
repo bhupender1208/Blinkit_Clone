@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-// import 'package:blinkit_app/repository/screens/splash/splashscreen.dart';
-
+import 'package:flutter/material.dart'; 
 import 'repository/screens/splash/splashscreen.dart';
 
 void main() {

@@ -1,10 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-// import 'package:blinkit_app/domain/constants/appcolors.dart';
-// import 'package:blinkit_app/repository/screens/login/loginscreen.dart';
-// import 'package:blinkit_app/repository/widgets/uihelper.dart';
-
 import '../../../domain/constants/appcolors.dart';
 import '../../widgets/uihelper.dart';
 import '../login/loginscreen.dart';

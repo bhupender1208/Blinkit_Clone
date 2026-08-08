@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:blinkit_app/repository/screens/bottomnav/bottomnavscreen.dart';
-// import 'package:blinkit_app/repository/widgets/uihelper.dart';
-
 import '../../widgets/uihelper.dart';
 import '../bottomnav/bottomnavscreen.dart';
 

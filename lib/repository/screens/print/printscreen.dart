@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-// import 'package:blinkit_app/repository/widgets/uihelper.dart';
-
+import 'package:flutter/material.dart'; 
 import '../../widgets/uihelper.dart';
 
 class Printscreen extends StatelessWidget {
