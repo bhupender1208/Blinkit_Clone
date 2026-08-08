@@ -95,6 +95,22 @@ blinkit_clone/
       <h3>Login Screen</h3>
       <img src="screenshots/login.png" width="350">
     </td>
+     <td align="center">
+      <h3>Home Screen</h3>
+      <img src="screenshots/home.jpeg" width="350">
+    </td>
+     <td align="center">
+      <h3>Cart Screen</h3>
+      <img src="screenshots/cart.jpeg" width="350">
+    </td>
+     <td align="center">
+      <h3>Category Screen</h3>
+      <img src="screenshots/category.jpeg" width="350">
+    </td>
+     <td align="center">
+      <h3>Print Screen</h3>
+      <img src="screenshots/print.jpeg" width="350">
+    </td>
   </tr>
 </table>
   
