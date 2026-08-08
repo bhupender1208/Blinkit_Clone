@@ -95,6 +95,8 @@ blinkit_clone/
       <h3>Login Screen</h3>
       <img src="screenshots/login.png" width="350">
     </td>
+  </tr>
+  <tr>
      <td align="center">
       <h3>Home Screen</h3>
       <img src="screenshots/home.jpeg" width="350">
