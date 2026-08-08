@@ -85,6 +85,17 @@ blinkit_clone/
 | **Print Store** | Document printing card with ₹3/page pricing + "Upload Files" button |
 | **Bottom Navigation** | All 4 tabs (Home, Cart, Categories, Print) visible in the bar |
 
+ ### Splash Screen
+
+<p align="center">
+  <img src="screenshots/splash_screen.png" width="300", height="300">
+</p>
+
+### Login Screen
+<p align="center">
+  <img src="screenshots/login.png" width="250", height="300">
+ 
+</p>
  
 
  
