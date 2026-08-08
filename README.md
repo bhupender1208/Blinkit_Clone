@@ -84,7 +84,7 @@ blinkit_clone/
 | **Cart Screen** | Bestsellers grid with product images, names, delivery time, and prices |
 | **Print Store** | Document printing card with ₹3/page pricing + "Upload Files" button |
 | **Bottom Navigation** | All 4 tabs (Home, Cart, Categories, Print) visible in the bar |
-
+<div>
 <table>
   <!-- Row 1: 2 Screens -->
   <tr>
@@ -102,6 +102,7 @@ blinkit_clone/
     </td>    
      </tr>
 </table>  
+</div>
  
 
  
