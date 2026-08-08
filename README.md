@@ -75,8 +75,6 @@ blinkit_clone/
 
 ## 📸 Screenshots
 
-> *Replace these placeholders with actual screenshots after running the app. Use `flutter screenshot` or capture from your emulator.*
-
 | Screen | What to Capture |
 |--------|-----------------|
 | **Splash Screen** | Centered Blinkit logo on branded background |
@@ -87,11 +85,9 @@ blinkit_clone/
 | **Print Store** | Document printing card with ₹3/page pricing + "Upload Files" button |
 | **Bottom Navigation** | All 4 tabs (Home, Cart, Categories, Print) visible in the bar |
 
-```markdown
-<!-- Add your screenshots like this: -->
-![Home Screen](screenshots/home_screen.png)
-![Category Screen](screenshots/category_screen.png)
-```
+ 
+
+ 
 
 ---
 
