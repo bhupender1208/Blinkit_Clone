@@ -96,6 +96,9 @@ blinkit_clone/
   <img src="screenshots/login.png" width="250", height="300">
  
 </span>
+
+<img src="screenshots/splash_screen.png" width="250" height="300" align="left" style="margin-right: 15px;">
+ <img src="screenshots/login.png" width="250", height="300" align="left" style="margin-right: 15px;>
  
 
  
