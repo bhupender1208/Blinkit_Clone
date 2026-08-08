@@ -160,20 +160,22 @@ The app will launch with: **Splash Screen → Login Screen → Bottom Navigation
 
 | | |
 |---|---|
-| **Name** | `Your Name` |
-| **GitHub** | [github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME) |
-| **LinkedIn** | [linkedin.com/in/YOUR_PROFILE](https://linkedin.com/in/YOUR_PROFILE) |
-| **Email** | your.email@example.com |
+| **Name** | `BHUPENDER` |
+| **GitHub** | [![GitHub](https://img.shields.io/badge/GitHub-333?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bhupender1208) |
+| **LinkedIn** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhupender-00b134282/) |
+| **Email** |[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bhupender00012@gmail.com) |
+
+
+
+
+
+
 
 > 💡 *Tip for recruiters:* This project showcases **Flutter UI development**, **state management**, **navigation patterns**, **custom reusable widgets**, and **clean code architecture** — all essential skills for a Flutter developer role.
 
 ---
 
-## 📄 License
-
-This project is built for **learning & portfolio demonstration purposes only**. All Blinkit branding, logos, and trademarks belong to **Blinkit (Zomato)**. This is not affiliated with or endorsed by Blinkit. Not intended for commercial use.
-
----
+ 
 
 <p align="center">
   <b>🚀 Built with Flutter & ❤️ | Showcasing Flutter skills to the world!</b>
