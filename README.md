@@ -93,7 +93,7 @@ blinkit_clone/
     </td>
     <td align="center">
       <h3>Login Screen</h3>
-      <img src="screenshots/login_screen.png" width="350">
+      <img src="screenshots/login.png" width="350">
     </td>
   </tr>
 </table>
