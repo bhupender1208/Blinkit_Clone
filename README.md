@@ -102,7 +102,7 @@ blinkit_clone/
 ## Cart and Print Screen
 
 <p align="center">
-  <img src="screenshots/cart.png" width="400", height="500">
+  <img src="screenshots/cart_screen.png" width="400", height="500">
   <img src="screenshots/print.png" width="400", height="500">
 </p>
  
