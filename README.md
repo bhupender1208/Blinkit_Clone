@@ -23,8 +23,8 @@ The app simulates a complete user journey: **Splash → Login → Home → Brows
 | # | Feature | Description |
 |---|---------|-------------|
 | 🔐 | **Splash Screen** | Branded 3-second splash with centered app logo, auto-navigates to Login |
-| 📲 | **Login Screen** | User card showing name & phone number, social media login icon, and phone number login option |
-| 🏠 | **Home Screen** | Red-themed header with 16-min delivery ETA, user address bar, search field, "Mega Diwali Sale" promotional banner, and horizontally scrollable product categories |
+| 📲 | **Login Screen** | social media login icon, Log in or Signup button, and phone number login option |
+| 🏠 | **Home Screen** | Golden Yellow-themed header with 16-min delivery ETA, user address bar, search field, "Mega Diwali Sale" promotional banner, and horizontally scrollable product categories |
 | 📂 | **Category Screen** | Three sections — *Groceries & Kitchen*, *Snacks & Drinks*, *Household Essentials* — all with horizontal scrollable item lists |
 | 🛒 | **Cart Screen** | Reorder prompt with empty-cart illustration, plus a **Bestsellers** section showing product images, names, delivery time, and pricing |
 | 🖨️ | **Print Store** | Document printing service UI — price per page, paper quality details, single-sided print type, and "Upload Files" CTA button |
@@ -78,8 +78,8 @@ blinkit_clone/
 | Screen | What to Capture |
 |--------|-----------------|
 | **Splash Screen** | Centered Blinkit logo on branded background |
-| **Login Screen** | User card with name, phone number, and dual login buttons |
-| **Home Screen** | Red header, 16-min delivery badge, Diwali Sale banner, scrollable products |
+| **Login Screen** | Onboarding screen, dual login buttons, login with google and login with phone number |
+| **Home Screen** | Golden Yellow header, 16-min delivery badge, Diwali Sale banner, scrollable products |
 | **Category Screen** | Grocery & Kitchen items in horizontal scroll list |
 | **Cart Screen** | Bestsellers grid with product images, names, delivery time, and prices |
 | **Print Store** | Document printing card with ₹3/page pricing + "Upload Files" button |
@@ -88,19 +88,22 @@ blinkit_clone/
 ## Splash and Login Screen
 
 <p align="center">
-  <img src="screenshots/splash_login.jpeg" width="300">
+  <img src="screenshots/splash.png" width="400", height="500">
+   <img src="screenshots/login.png" width="400", height="500">
 </p>
 
 ## Home and Category Screen
 
 <p align="center">
-  <img src="screenshots/home_cate.jpeg" width="300">
+  <img src="screenshots/home.png" width="400", height="500">
+  <img src="screenshots/cate" width="400", height="500">
 </p>
 
 ## Cart and Print Screen
 
 <p align="center">
-  <img src="screenshots/cart_print.jpeg" width="300">
+  <img src="screenshots/cart.png" width="400", height="500">
+  <img src="screenshots/print.png" width="400", height="500">
 </p>
  
 
@@ -141,8 +144,8 @@ Add the required images to `assets/images/`:
 
 | Image File | Used In |
 |------------|---------|
-| `Blinkit Onboarding Screen.png` | Login Screen |
-| `image 10.png` | Login Screen |
+| `onboarding.png` | Login Screen |
+| `blinkit_logo.png` | Login Screen |
 | Various product images | Home, Category, Cart screens |
 | Cart illustration | Cart Screen |
 | `search.png`, `mic.png` | Search bar icons |
