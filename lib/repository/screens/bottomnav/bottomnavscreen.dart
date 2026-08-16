@@ -1,18 +1,19 @@
-import 'package:flutter/material.dart'; 
-import '../../widgets/uihelper.dart';
+import 'package:flutter/material.dart';
 import '../cart/cartscreen.dart';
 import '../category/categoryscreen.dart';
 import '../home/homescreen.dart';
 import '../print/printscreen.dart';
-
 class Bottomnavscreen extends StatefulWidget {
+  const Bottomnavscreen({super.key});
+
   @override
   State<Bottomnavscreen> createState() => _BottomnavscreenState();
 }
 
 class _BottomnavscreenState extends State<Bottomnavscreen> {
-  int currentIndex = 0;
-  List<Widget> pages = [
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = [
     Homescreen(),
     Cartscreen(),
     Categoryscreen(),
@@ -21,53 +22,113 @@ class _BottomnavscreenState extends State<Bottomnavscreen> {
 
   @override
   Widget build(BuildContext context) {
-    // PopScope back button click ko capture karta hai
-    return PopScope(
-      canPop: currentIndex == 0, // Agar Home screen (index 0) par hain toh hi exit allow karega
-      onPopInvokedWithResult: (didPop, result) {
-        if (didPop) return; // Agar pehle hi pop ho chuka hai toh kuch mat karo
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isDesktop = screenWidth >= 800;
 
-        // Agar user kisi aur screen par hai, toh back karne pe pehle Home (index 0) par bhejega
-        if (currentIndex != 0) {
+    return PopScope(
+      canPop: _currentIndex == 0, 
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+
+         if (_currentIndex != 0) {
           setState(() {
-            currentIndex = 0;
+            _currentIndex = 0;
           });
         }
       },
       child: Scaffold(
         body: IndexedStack(
-          index: currentIndex,
-          children: pages,
+          index: _currentIndex,
+          children: _pages,
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: Uihelper.CustomImage(img: "home 1.png"),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Uihelper.CustomImage(img: "shopping-bag 1.png"),
-              label: "Cart",
-            ),
-            BottomNavigationBarItem(
-              icon: Uihelper.CustomImage(img: "category 1.png"),
-              label: "Categories",
-            ),
-            BottomNavigationBarItem(
-              icon: Uihelper.CustomImage(img: "printer 1.png"),
-              label: "Print",
-            ),
-          ],
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
-          onTap: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
+         bottomNavigationBar: _buildBottomNavBar(isDesktop),
+      ),
+    );
+  }
+
+  Widget _buildBottomNavBar(bool isDesktop) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 10,
+            offset: const Offset(0, -2),
+          ),
+        ],
+      ),
+      child: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: isDesktop ? 80 : 12,
+            vertical: 6,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildNavItem("Home", "home_icon.png", 0, isDesktop),
+              _buildNavItem("Cart", "cart_icon.png", 1, isDesktop),
+              _buildNavItem("Categories", "category_icon.png", 2, isDesktop),
+              _buildNavItem("Print", "print_icon.png", 3, isDesktop),
+            ],
+          ),
         ),
       ),
     );
   }
-}
 
+  Widget _buildNavItem(
+      String label, String icon, int index, bool isDesktop) {
+    final isSelected = _currentIndex == index;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _currentIndex = index;
+        });
+      },
+      behavior: HitTestBehavior.opaque,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: 8,
+          horizontal: isDesktop ? 28 : 16,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              _getNavIcon(index),
+              color: isSelected ? const Color(0XFF0C831A) : Colors.black45,
+              size: isDesktop ? 26 : 22,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: isDesktop ? 13 : 11,
+                fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400,
+                color: isSelected ? const Color(0XFF0C831A) : Colors.black45,
+                fontFamily: "regular",
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  IconData _getNavIcon(int index) {
+    switch (index) {
+      case 0:
+        return Icons.home_filled;
+      case 1:
+        return Icons.shopping_cart;
+      case 2:
+        return Icons.grid_view_rounded;
+      case 3:
+        return Icons.print;
+      default:
+        return Icons.circle;
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart'; 
-import 'repository/screens/splash/splashscreen.dart';
+import 'package:flutter/material.dart';
+ import 'repository/screens/splash/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
       title: 'Blinkit',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorSchemeSeed: Color(0XFFF7CB45),
+        useMaterial3: true,
+        fontFamily: "regular",
       ),
-      home:  Splashscreen()
+      home: Splashscreen(),
     );
   }
 }
-
