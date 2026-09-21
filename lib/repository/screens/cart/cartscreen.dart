@@ -78,49 +78,48 @@ class Cartscreen extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context, bool isDesktop) {
-    return Container(
-      width: double.infinity,
-      // height: 190,
-      height: isDesktop ? 190 : 160,  
-      decoration: BoxDecoration(
-        color: Color(0XFFF7CB45),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+  return Container(
+    width: double.infinity,
+    height: isDesktop ? 190 : 160,
+    decoration: const BoxDecoration(
+      color: Color(0XFFF7CB45),
+    ),
+    child: SafeArea(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: isDesktop ? 32 : 16,
         ),
-      ),
-      child: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: isDesktop ? 32 : 16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [             
-              SizedBox(width: 8),
-             Column(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(width: 8),
+ 
+            Expanded(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Uihelper.CustomText(
-                        text: "Blinkit in",
-                        color: Colors.black,
-                        fontweigt: FontWeight.bold,
-                        fontsize: isDesktop ? 18 : 15,
-                      ),
-                    ],
+                  Uihelper.CustomText(
+                    text: "Blinkit in",
+                    color: Colors.black,
+                    fontweigt: FontWeight.bold,
+                    fontsize: isDesktop ? 18 : 15,
                   ),
-                  Row(
-                    children: [
-                      Uihelper.CustomText(
-                        text: "16 minutes",
-                        color: Colors.black,
-                        fontweigt: FontWeight.bold,
-                        fontsize: isDesktop ? 23 : 20,
-                      ),
-                    ],
+
+                  Uihelper.CustomText(
+                    text: "16 minutes",
+                    color: Colors.black,
+                    fontweigt: FontWeight.bold,
+                    fontsize: isDesktop ? 23 : 20,
                   ),
+
+                  const SizedBox(height: 3),
+
+                  // ====================================
+                  // ADDRESS
+                  // ====================================
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Uihelper.CustomText(
                         text: "Home - ",
@@ -128,27 +127,46 @@ class Cartscreen extends StatelessWidget {
                         fontweigt: FontWeight.bold,
                         fontsize: isDesktop ? 17 : 14,
                       ),
-                      Uihelper.CustomText(
-                        text: "Akash Prajapati, Harsh Vihar, (Delhi)",
-                        color: Colors.black54,
-                        fontweigt: FontWeight.w400,
-                        fontsize: isDesktop ? 17 : 14,
+
+                      // Remaining available width only
+                      Expanded(
+                        child: Text(
+                          "Akash Prajapati, Harsh Vihar, (Delhi)",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w400,
+                            fontSize: isDesktop ? 17 : 14,
+                            fontFamily: "regular",
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ],
               ),
-              Spacer(),
-              CircleAvatar(
-                radius: isDesktop ? 20 : 16,
-                backgroundImage: AssetImage("assets/images/profile.png"),
+            ),
+
+            SizedBox(
+              width: isDesktop ? 20 : 10,
+            ),
+
+            // ==========================================
+            // PROFILE IMAGE
+            // ==========================================
+            CircleAvatar(
+              radius: isDesktop ? 20 : 16,
+              backgroundImage: const AssetImage(
+                "assets/images/profile.png",
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   Widget _buildSearchBar(bool isDesktop) {
     return Padding(

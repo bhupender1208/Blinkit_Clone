@@ -1,111 +1,210 @@
-# 📱 Blinkit Clone – Flutter Grocery Delivery App
+ # 📱 Blinkit Clone – Flutter Grocery Delivery App
 
-A complete **Blinkit-style grocery & food delivery app** built with Flutter. The app features a polished UI with a branded splash screen, phone-based login, multi-category product browsing, a shopping cart, and even a **Print Store** for document uploads — all tied together with a smooth bottom navigation experience.
+A responsive **Blinkit-inspired grocery & quick-commerce application** built with Flutter and Firebase. The project features Firebase Phone Authentication with OTP verification, persistent login sessions, recruiter-friendly demo authentication, responsive product browsing, cart UI, category browsing, a Print Store, account management, and secure logout functionality.
+
+The application is designed to work across **Android and Web**, with responsive layouts for mobile, tablet, laptop, and desktop screen sizes.
 
 ---
 
 ## 📱 Project Overview
 
-This is a **UI clone of the Blinkit app** (India's leading quick-commerce grocery delivery platform) developed entirely in Flutter. The project demonstrates:
+This project is a **Flutter-based Blinkit UI clone** created to demonstrate practical mobile and web application development concepts.
 
+The project demonstrates:
+
+- Firebase Phone Authentication
+- OTP-based user verification
+- Firebase authentication session persistence
+- Demo authentication for recruiter testing
+- Platform-specific authentication handling for Android and Web
+- Responsive UI for mobile, tablet, laptop, and desktop
 - Multi-screen navigation with state preservation
-- Reusable custom widget architecture (`Uihelper`)
-- Centralized theme management (`Appcolors`)
-- Real-world e-commerce UI patterns — banners, horizontal scrolls, product cards
-- Clean separation of concerns across multiple Dart files
-
-The app simulates a complete user journey: **Splash → Login → Home → Browse Categories → Add to Cart → Print Documents**.
+- Account management and secure logout
+ - Real-world e-commerce UI patterns 
 
 ---
 
 ## ✨ Features
 
-| # | Feature | Description |
-|---|---------|-------------|
-| 🔐 | **Splash Screen** | Branded 3-second splash with centered app logo, auto-navigates to Login |
-| 📲 | **Login Screen** | social media login icon, Log in or Signup button, and phone number login option |
-| 🏠 | **Home Screen** | Golden Yellow-themed header with 16-min delivery ETA, user address bar, search field, "Mega Diwali Sale" promotional banner, and horizontally scrollable product categories |
-| 📂 | **Category Screen** | Three sections — *Groceries & Kitchen*, *Snacks & Drinks*, *Household Essentials* — all with horizontal scrollable item lists |
-| 🛒 | **Cart Screen** | Reorder prompt with empty-cart illustration, plus a **Bestsellers** section showing product images, names, delivery time, and pricing |
-| 🖨️ | **Print Store** | Document printing service UI — price per page, paper quality details, single-sided print type, and "Upload Files" CTA button |
-| 🧭 | **Bottom Navigation** | 4-tab bar: **Home · Cart · Categories · Print** using `IndexedStack` for state preservation |
-| ⬅️ | **Smart Back Handling** | `PopScope` intercepts Android back button — exits only from Home tab, redirects to Home from other tabs |
-| 🎨 | **Reusable UI Kit** | `Uihelper` class provides `CustomImage`, `CustomText`, `CustomTextField`, and `CustomButton` for DRY, consistent UI |
-| 🎨 | **Centralized Colors** | `Appcolors` class with static color constants for easy theme-wide changes |
-
+| Feature | Description |
+|---------|-------------|
+| 🔐 **Splash Screen** | Branded splash screen that checks the Firebase authentication state before deciding whether to open Login or Home |
+| 📱 **Phone Number Login** | Indian mobile-number login with `+91` country code and 10-digit number validation |
+| 🔢 **OTP Verification** | Dedicated OTP screen with 6-digit validation, verification loading state, error handling, and resend timer |
+| 🔥 **Firebase Authentication** | Phone authentication powered by Firebase Authentication |
+| 🌐 **Android & Web Authentication** | Platform-specific Firebase phone authentication flow for Android and Flutter Web |
+| 🧪 **Demo Login** | Firebase test phone number and fixed OTP support for recruiter/portfolio demonstrations without sending real SMS |
+| 💾 **Persistent Login** | Firebase authentication session is retained after restarting or reopening the application |
+| 🏠 **Home Screen** | Blinkit-inspired header with delivery ETA, address, search bar, promotional banner, horizontal categories, and product grids |
+| 📂 **Category Screen** | Multiple product sections including Groceries & Kitchen, Snacks & Drinks, and Household Essentials |
+| 🛒 **Cart Screen** | Cart-style interface with reorder section and Bestsellers containing product details, delivery time, and prices |
+| 🖨️ **Print Store** | Document printing service UI with pricing, paper quality, print type, and Upload Files CTA |
+| 👤 **Account Screen** | Displays authenticated user's phone number along with Profile, Saved Addresses, My Orders, and Help & Support options |
+| 🚪 **Secure Logout** | Firebase `signOut()` clears the authenticated session and returns the user to Login while removing previous routes |
+| 🧭 **Bottom Navigation** | 5-tab navigation: **Home · Cart · Categories · Print · Account** with `IndexedStack` for state preservation |
+| ⬅️ **Smart Back Handling** | Custom back-navigation behaviour prevents unwanted navigation and maintains a smooth tab experience |
+| 📐 **Responsive Design** | Responsive layouts optimized for mobile, tablet, laptop, and desktop screen sizes |
+ 
 ---
 
+## 🔐 Authentication Flow
+
+The application uses **Firebase Authentication** for phone-number authentication.
+
+### Android
+
+```text
+Phone Number
+     ↓
+verifyPhoneNumber()
+     ↓
+Verification ID
+     ↓
+OTP Screen
+     ↓
+PhoneAuthCredential
+     ↓
+signInWithCredential()
+     ↓
+Authenticated User
+```
+
+### Web
+
+```text
+Phone Number
+     ↓
+signInWithPhoneNumber()
+     ↓
+Firebase Web Verification / reCAPTCHA
+     ↓
+ConfirmationResult
+     ↓
+OTP Screen
+     ↓
+confirmationResult.confirm(OTP)
+     ↓
+Authenticated User
+```
+
+After successful authentication, Firebase maintains the user's session. When the application starts again, the Splash Screen checks:
+
+```dart
+FirebaseAuth.instance.currentUser
+```
+
+If a user is already authenticated, the application directly opens the main application instead of asking them to log in again.
+
+---
+ 
 ## 🛠️ Tech Stack
 
 | Technology | Purpose |
-|-------------|---------|
-| **Flutter** | Cross-platform UI framework |
+|------------|---------|
+| **Flutter** | Cross-platform application framework |
 | **Dart** | Programming language |
-| **Material Design** | UI component library & theming |
-| **`IndexedStack`** | Multi-tab screen switching without losing widget state |
-| **`PopScope`** | Android back button interception & custom handling |
-| **`Navigator.pushReplacement`** | Seamless screen transitions (Splash → Login → Home) |
-| **`Timer`** | Splash screen countdown delay logic |
-| **Custom `Uihelper`** | Reusable widget factory — images, text, fields, buttons |
+| **Firebase Core** | Firebase initialization and configuration |
+| **Firebase Authentication** | Phone-number authentication and OTP verification |
+| **Firebase Hosting** | Deployment of the Flutter Web application |
+| **FlutterFire CLI** | Firebase configuration for Flutter platforms |
+| **Material Design** | UI components and application styling |
+| **IndexedStack** | Bottom-navigation screen switching while preserving state |
+| **PopScope** | Custom Android back-navigation handling |
+| **Navigator** | Login, OTP, Home, and Logout navigation flows |
+| **MediaQuery** | Screen-size detection for responsive layouts |
+| **LayoutBuilder** | Constraint-based responsive UI |
 
 ---
 
 ## 📂 Folder Structure
 
-```
-blinkit_clone/
+```text
+blinkit_app/
+│
 ├── lib/
-│   ├── main.dart                    # App entry point → MaterialApp with theme & SplashScreen
-│   ├── appcolors.dart               # Appcolors class — static color constants
-│   ├── uihelper.dart                # Uihelper class — CustomImage, CustomText, CustomTextField, CustomButton
-│   ├── splashscreen.dart            # 3-second splash → auto-navigate to LoginScreen
-│   ├── loginscreen.dart             # Login UI with social & phone authentication options
-│   ├── homescreen.dart              # Home screen with banner, search, & product categories
-│   ├── categoryscreen.dart          # Category browsing (Groceries, Snacks & Drinks, Household)
-│   ├── cartscreen.dart              # Cart screen with Reorder section & Bestsellers
-│   ├── printscreen.dart             # Print Store — pricing card & document upload UI
-│   └── bottomnavscreen.dart         # BottomNavigationBar controller (IndexedStack + PopScope)
+│   ├── main.dart
+│   ├── firebase_options.dart
+│   │
+│   ├── domain/
+│   │   └── constants/
+│   │       └── appcolors.dart
+│   │
+│   └── repository/
+│       │
+│       ├── widgets/
+│       │   └── uihelper.dart
+│       │
+│       └── screens/
+│           │
+│           ├── splash/
+│           │   └── splashscreen.dart
+│           │
+│           ├── login/
+│           │   ├── loginscreen.dart
+│           │   └── otpscreen.dart
+│           │
+│           ├── home/
+│           │   └── homescreen.dart
+│           │
+│           ├── category/
+│           │   └── categoryscreen.dart
+│           │
+│           ├── cart/
+│           │   └── cartscreen.dart
+│           │
+│           ├── print/
+│           │   └── printscreen.dart
+│           │
+│           ├── account/
+│           │   └── accountscreen.dart
+│           │
+│           └── bottomnav/
+│               └── bottomnavscreen.dart
+│
 ├── assets/
-│   └── images/                      # All app assets — logos, icons, product images, banners
-├── pubspec.yaml                     # Flutter project config & asset declarations
-└── README.md                        # ← You are here!
+│   └── images/
+│       └── App images, logos, icons & product assets
+│
+├── screenshots/
+│   └── Project screenshots
+│
+├── android/
+├── web/
+├── pubspec.yaml
+└── README.md
 ```
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots 
 
-| Screen | What to Capture |
-|--------|-----------------|
-| **Splash Screen** | Centered Blinkit logo on branded background |
-| **Login Screen** | Onboarding screen, dual login buttons, login with google and login with phone number |
-| **Home Screen** | Golden Yellow header, 16-min delivery badge, Diwali Sale banner, scrollable products |
-| **Category Screen** | Grocery & Kitchen items in horizontal scroll list |
-| **Cart Screen** | Bestsellers grid with product images, names, delivery time, and prices |
-| **Print Store** | Document printing card with ₹3/page pricing + "Upload Files" button |
-| **Bottom Navigation** | All 4 tabs (Home, Cart, Categories, Print) visible in the bar |
-
-## Splash and Login Screen
+### Splash & Login Screen
 
 <p align="center">
-  <img src="screenshots/splash.png" width="400", height="500">
-   <img src="screenshots/login.png" width="400", height="500">
+  <img src="screenshots/splash.png" width="400" height="500">
+  <img src="screenshots/login.png" width="400" height="500">
 </p>
 
-## Home and Category Screen
+### OTP & Account Screen
+
+<p align="center">
+  <img src="screenshots/otp.png" width="400" height="500">
+  <img src="screenshots/account.png" width="400" height="500">
+</p>
+
+### Home & Cart Screen
 
 <p align="center">
   <img src="screenshots/home.png" width="400", height="500">
-  <img src="screenshots/cate.png" width="400", height="500">
+  <img src="screenshots/cart.png" width="400", height="500">
 </p>
 
-## Cart and Print Screen
+### Category & Print Screen
 
 <p align="center">
-  <img src="screenshots/cart_screen.png" width="400", height="500">
+  <img src="screenshots/cate.png" width="400", height="500">
   <img src="screenshots/print.png" width="400", height="500">
 </p>
- 
 
 ---
 
@@ -113,16 +212,26 @@ blinkit_clone/
 
 ### 1️⃣ Prerequisites
 
-- **Flutter SDK** ≥ 3.x → [Installation Guide](https://docs.flutter.dev/get-started/install)
-- **Android Studio** or **VS Code** with Flutter & Dart extensions
-- A physical device or emulator (**Android** / **iOS**)
+Make sure you have:
+
+- **Flutter SDK 3.x or newer**
+- **Android Studio** or **VS Code**
+- Flutter & Dart extensions
+- Android emulator or physical Android device
+- Chrome for Flutter Web testing
+- A Firebase project
+
+---
 
 ### 2️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/blinkit-clone.git
-cd blinkit-clone
+git clone https://github.com/Your_Username/Blinkit_Clone.git
+
+cd Blinkit_Clone
 ```
+
+---
 
 ### 3️⃣ Install Dependencies
 
@@ -130,9 +239,77 @@ cd blinkit-clone
 flutter pub get
 ```
 
-### 4️⃣ Configure Assets
+---
 
-Ensure your `pubspec.yaml` includes the assets directory:
+### 4️⃣ Firebase Configuration
+
+The project uses Firebase Authentication.
+
+If configuring your own Firebase project:
+
+```bash
+firebase login
+```
+
+Install/configure FlutterFire if required:
+
+```bash
+dart pub global activate flutterfire_cli
+```
+
+Then:
+
+```bash
+flutterfire configure
+```
+
+This generates:
+
+```text
+lib/firebase_options.dart
+```
+
+Enable:
+
+```text
+Firebase Console
+→ Authentication
+→ Sign-in method
+→ Phone
+→ Enable
+```
+
+For Web deployment, ensure your hosting domain is included under:
+
+```text
+Authentication
+→ Settings
+→ Authorized domains
+```
+
+---
+
+### 5️⃣ Firebase Test Phone Number
+
+For development or portfolio demonstration, configure a test phone number from Firebase Authentication.
+
+```text
+Firebase Console
+→ Authentication
+→ Sign-in method
+→ Phone
+→ Phone numbers for testing
+```
+
+Add a test phone number and fixed 6-digit verification code.
+
+> Test credentials should only be used for development/demo purposes.
+
+---
+
+### 6️⃣ Configure Assets
+
+Ensure `pubspec.yaml` contains:
 
 ```yaml
 flutter:
@@ -140,35 +317,88 @@ flutter:
     - assets/images/
 ```
 
-Add the required images to `assets/images/`:
+---
 
-| Image File | Used In |
-|------------|---------|
-| `onboarding.png` | Login Screen |
-| `blinkit_logo.png` | Login Screen |
-| Various product images | Home, Category, Cart screens |
-| Cart illustration | Cart Screen |
-| `search.png`, `mic.png` | Search bar icons |
-
-### 5️⃣ Run the App
+### 7️⃣ Run on Android
 
 ```bash
 flutter run
 ```
 
-The app will launch with: **Splash Screen → Login Screen → Bottom Navigation** flow.
+Or select an Android emulator/physical device from VS Code and run the project.
+
+---
+
+### 8️⃣ Run on Chrome
+
+```bash
+flutter run -d chrome
+```
+
+---
+
+### 9️⃣ Build Flutter Web
+
+```bash
+flutter build web
+```
+
+---
+
+### 🔟 Deploy to Firebase Hosting
+
+```bash
+firebase deploy --only hosting
+```
+
+---
+
+## 🔄 Complete User Journey
+
+```text
+Launch App
+   ↓
+Splash Screen
+   ↓
+Check Firebase User
+   ↓
+Login Required?
+   │
+   ├── No → Home
+   │
+   └── Yes
+        ↓
+   Phone Login
+        ↓
+   Send OTP
+        ↓
+   OTP Verification
+        ↓
+   Firebase Authentication
+        ↓
+   Home
+        ↓
+┌───────┬──────┬────────────┬───────┬─────────┐
+Home   Cart   Categories   Print   Account
+                                      ↓
+                                    Logout
+                                      ↓
+                                    Login
+```
 
 ---
 
 ## 🎨 Color Palette
 
-| Constant | Hex Code | Color | Usage |
-|----------|----------|-------|-------|
-| `scaffoldbackground` | `#F7CB45` | 🟡 Golden Yellow | App-wide scaffold background |
-| Search Border | `#C5C5C5` | ⬜ Light Grey | Search field border color |
-| ADD Button | `#27AF34` | 🟢 Green | "ADD" call-to-action buttons |
+| Element | Hex Code | Color | Usage |
+|---------|----------|-------|-------|
+| Header | `#F7CB45` | 🟡 Golden Yellow | Blinkit-style Home header |
+| Primary Green | `#0C831F` | 🟢 Green | Authentication buttons and primary actions |
+| ADD Button | `#27AF34` | 🟢 Green | Product ADD buttons |
+| Search Border | `#C5C5C5` | Light Grey | Search/input field borders |
+| Promotional Banner | `#E73837` → `#C62828` | 🔴 Red | Mega Diwali Sale banner |
 
----
+--- 
 
 ## 👨‍💻 Author
 
@@ -177,21 +407,14 @@ The app will launch with: **Splash Screen → Login Screen → Bottom Navigation
 | **Name** | `BHUPENDER` |
 | **GitHub** | [![GitHub](https://img.shields.io/badge/GitHub-333?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bhupender1208) |
 | **LinkedIn** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhupender-00b134282/) |
-| **Email** |[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bhupender00012@gmail.com) |
-
-
-
-
-
-
-
-> 💡 *Tip for recruiters:* This project showcases **Flutter UI development**, **state management**, **navigation patterns**, **custom reusable widgets**, and **clean code architecture** — all essential skills for a Flutter developer role.
+| **Email** | [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bhupender00012@gmail.com) |
 
 ---
 
- 
+> 💡 **For Recruiters:** This project demonstrates practical Flutter development including responsive UI design, Firebase Phone Authentication, OTP verification, authentication persistence, Android/Web platform handling, reusable components, navigation, and Firebase integration.
+
+---
 
 <p align="center">
-  <b>🚀 Built with Flutter & ❤️ | Showcasing Flutter skills to the world!</b>
+  <b>🚀 Built with Flutter & Firebase ❤️ | Responsive across Android & Web</b>
 </p>
-

@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
- import '../../../domain/constants/appcolors.dart';
+import '../../../domain/constants/appcolors.dart';
 import '../../widgets/uihelper.dart';
+import '../bottomnav/bottomnavscreen.dart';
 import '../login/loginscreen.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -15,10 +17,21 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+
+    Timer(const Duration(seconds: 3), () {
+       if (!mounted) return;
+
+       final User? user = FirebaseAuth.instance.currentUser;
+
+       final Widget nextScreen = user != null
+          ? const Bottomnavscreen()
+          : const Loginscreen();
+
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Loginscreen()),
+        MaterialPageRoute(
+          builder: (context) => nextScreen,
+        ),
       );
     });
   }
@@ -47,9 +60,11 @@ class _SplashscreenState extends State<Splashscreen> {
               SizedBox(
                 height: isDesktop ? 32 : 24,
                 width: isDesktop ? 32 : 24,
-                child: CircularProgressIndicator(
+                child: const CircularProgressIndicator(
                   strokeWidth: 2.5,
-                  valueColor: AlwaysStoppedAnimation<Color>(Color(0XFF0C831A)),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Color(0XFF0C831A),
+                  ),
                 ),
               ),
             ],
